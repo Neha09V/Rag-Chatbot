@@ -1,36 +1,182 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 RAG Chatbot – AI-Powered Document Intelligence System
 
-## Getting Started
+## 📌 Overview
 
-First, run the development server:
+The **RAG Chatbot** is a full-stack AI system that allows users to:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 📄 Upload PDF documents
+- 💬 Ask questions from uploaded files
+- 🧠 Get AI-powered answers using RAG (Retrieval-Augmented Generation)
+- 🌐 Fetch real-time information using web search
+- ⚡ Get fast streaming responses like ChatGPT
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+It combines **LLMs + Vector Database + Embeddings + Modern UI** to build an intelligent document assistant.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features
 
-## Learn More
+### 📄 PDF Upload & Processing
+- Upload PDF files via UI
+- Extract text using `pdf-parse`
+- Split documents into chunks
+- Convert chunks into embeddings
+- Store data in PostgreSQL (Neon + pgvector)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🧠 RAG (Retrieval-Augmented Generation)
+- Converts user query into embeddings
+- Finds most relevant document chunks
+- Sends context to LLM
+- Generates accurate answers from documents
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### 🔍 Semantic Search
+- Vector similarity search using cosine distance
+- Fast retrieval from database
+- Context-aware responses
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🌐 Web Search Integration
+- Uses Tavily API for live internet search
+- Activates when document data is not available
+- Handles:
+  - News
+  - Current events
+  - Sports updates
+  - Latest facts
+
+---
+
+### 💬 AI Chat Interface
+- ChatGPT-style UI
+- Streaming responses
+- Message history support
+- Clean and responsive design
+
+---
+
+### 📤 Upload System
+- Simple file upload UI
+- File size validation (10MB limit)
+- Instant processing feedback
+
+---
+
+### 🔐 Authentication
+- Clerk authentication system
+- Secure login/logout
+- User session handling
+
+---
+
+## 🏗️ Architecture
+
+User → Chat UI → API Route →  
+→ (Web Search OR Vector DB OR LLM) →  
+→ Embedding Search → Context → LLM → Response
+
+---
+
+## ⚙️ Tech Stack
+
+**Frontend**
+- Next.js (App Router)
+- React.js
+- Tailwind CSS
+
+**Backend**
+- Next.js API Routes
+- Server Actions
+
+**AI / ML**
+- Groq LLaMA 3.1
+- Google Gemini Embeddings
+- AI SDK
+
+**Database**
+- PostgreSQL (Neon)
+- pgvector extension
+
+**Tools**
+- pdf-parse
+- tavily
+- drizzle-orm
+- zod
+
+---
+## 📁 Project Structure
+src/
+├── app/
+│ ├── api/
+│ │ ├── chat/
+│ │ ├── test-search/
+│ ├── chat/
+│ ├── upload/
+│
+├── lib/
+│ ├── db-config.ts
+│ ├── db-schema.ts
+│ ├── search.ts
+│ ├── embeddings.ts
+│ ├── web-search.ts
+│ ├── chunking.ts
+│
+├── components/
+│ ├── ai-elements/
+│ ├── ui/
+
+
+
+---
+
+## 🔄 Workflow
+
+### Step 1: Upload PDF
+- PDF uploaded from UI
+- Text extracted
+- Split into chunks
+- Embeddings generated
+- Stored in database
+
+---
+
+### Step 2: Ask Question
+- Query converted to embedding
+- Similar chunks retrieved
+- Context sent to LLM
+
+---
+
+### Step 3: AI Response
+- LLM generates answer
+- Streaming response sent to UI
+
+---
+
+## 🚀 Highlights
+
+- ⚡ Real-time AI chat system
+- 🧠 Full RAG pipeline
+- 📄 PDF-based knowledge assistant
+- 🌐 Web search fallback
+- 🔍 Vector database search
+- 💬 Streaming responses
+
+---
+
+## 📈 Future Improvements
+
+- Multi-PDF selection
+- Chat history storage
+- User-based document isolation
+- Admin dashboard
+- Source highlighting in answers
+
+---
+
+
+
