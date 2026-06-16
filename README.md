@@ -178,5 +178,7 @@ src/
 
 ---
 
+<img width="1920" height="1080" alt="Screenshot (372)" src="https://github.com/user-attachments/assets/1b2861cb-b0ef-4223-a1a7-41c2c30f1ab2" />
 
+<img width="1920" height="1080" alt="Screenshot (375)" src="https://github.com/user-attachments/assets/3eda2cf2-1dbb-4c92-b8fb-c316fa958f18" />
 
