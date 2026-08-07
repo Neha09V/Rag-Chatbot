@@ -12,6 +12,16 @@ The **RAG Chatbot** is a full-stack AI system that allows users to:
 
 It combines **LLMs + Vector Database + Embeddings + Modern UI** to build an intelligent document assistant.
 
+
+
+---
+
+## 🚀 Live Demo
+
+Experience the application here:
+
+"https://rag-chatbot-a3py.onrender.com/"
+
 ---
 
 ## ✨ Features
@@ -181,4 +191,14 @@ src/
 <img width="1920" height="1080" alt="Screenshot (372)" src="https://github.com/user-attachments/assets/1b2861cb-b0ef-4223-a1a7-41c2c30f1ab2" />
 
 <img width="1920" height="1080" alt="Screenshot (375)" src="https://github.com/user-attachments/assets/3eda2cf2-1dbb-4c92-b8fb-c316fa958f18" />
+
+<img width="1920" height="1080" alt="Screenshot (454)" src="https://github.com/user-attachments/assets/3f4e2b37-37e6-4277-bed1-d2965c040cb3" />
+
+<img width="1920" height="1080" alt="Screenshot (455)" src="https://github.com/user-attachments/assets/30d5b4dd-331d-4415-860d-19c6afed682e" />
+
+
+<img width="1920" height="1080" alt="Screenshot (456)" src="https://github.com/user-attachments/assets/99eeb427-16bf-4f5a-b4d0-5b140a0102ad" />
+
+
+
 
