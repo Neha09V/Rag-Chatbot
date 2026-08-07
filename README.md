@@ -16,11 +16,15 @@ It combines **LLMs + Vector Database + Embeddings + Modern UI** to build an inte
 
 ---
 
-## 🚀 Live Demo
+## 🌐 Deployment
 
-Experience the application here:
+Deployed using **Render** 🚀
 
-"https://rag-chatbot-a3py.onrender.com/"
+Visit the live project here:  "https://rag-chatbot-a3py.onrender.com/"
+
+- Auto deploy from GitHub
+- Environment variables managed via Render dashboard
+- MongoDB Atlas used for database
 
 ---
 
