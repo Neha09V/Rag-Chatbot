@@ -24,10 +24,23 @@
 //     "/(api|trpc)(.*)",
 //   ],
 // };
-import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+
+const isUploadRoute = createRouteMatcher([
+  "/upload(.*)",
+]);
+
+export default clerkMiddleware(async (auth, req) => {
+  if (isUploadRoute(req)) {
+    await auth.protect();
+  }
+});
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: [
+    "/((?!.*\\..*|_next).*)",
+    "/",
+    "/(api|trpc)(.*)",
+  ],
 };

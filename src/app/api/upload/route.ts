@@ -5,7 +5,20 @@ import { documents } from "@/lib/db-schema";
 import { generateEmbeddings } from "@/lib/embeddings";
 import { chunkContent } from "@/lib/chunking";
 
+import { auth } from "@clerk/nextjs/server";
 export async function POST(req: Request) {
+      const { userId } = await auth();
+
+  if (!userId) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "You must be signed in to upload documents.",
+      },
+      { status: 401 }
+    );
+  }
+
   try {
     const formData = await req.formData();
     const file = formData.get("pdf") as File;
