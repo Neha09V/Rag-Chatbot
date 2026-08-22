@@ -72,7 +72,12 @@ that may not exist in uploaded documents.`,
 
   try {
     const result = await webSearch(query);
-    return result;
+       const cleanedResult = result
+      .replace(/\\<br\s*\/?>/gi, "\n")
+      .replace(/<br\s*\/?>/gi, "\n");
+
+    return cleanedResult;
+  
   } catch (error) {
     console.error("Web search error:", error);
     return "WEB_SEARCH_FAILED";
@@ -88,9 +93,9 @@ export async function POST(req: Request) {
   try {
     const { messages }: { messages: ChatMessage[] } = await req.json();
 
-    const trimmedMessages = messages.slice(-6);
+    const trimmedMessages = messages.slice(-4);
     const result = streamText({
-      model: groq("llama-3.1-8b-instant"),
+      model: groq("openai/gpt-oss-20b"),
   
       messages: await convertToModelMessages(trimmedMessages),
       tools,
@@ -127,9 +132,10 @@ CRITICAL RULE
 
 If user asks anything about:
 - IPL winners
-- cricket results
+- cricket results and Details
 - current year events
 - latest information
+-political news and history
 
 YOU MUST ALWAYS CALL webSearch BEFORE ANSWERING.
 NEVER answer from memory.
@@ -140,6 +146,9 @@ Response Format:
 - Use Markdown
 - Be structured
 - Be short and clear
+- Never output HTML tags such as <br>, <br/>, <p>, <div>, or <table>
+- Use Markdown line breaks instead of HTML tags
+
 `,  
       stopWhen: stepCountIs(2),
     });

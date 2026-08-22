@@ -3,8 +3,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { processPdfFile } from "./actions";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -38,7 +36,12 @@ export default function PDFUpload() {
       const formData = new FormData();
       formData.append("pdf", file);
 
-      const result = await processPdfFile(formData);
+      const response = await fetch("/api/upload", {
+  method: "POST",
+  body: formData,
+});
+
+const result = await response.json();
 
       if (result.success) {
         setMessage({
