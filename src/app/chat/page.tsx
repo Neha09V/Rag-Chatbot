@@ -46,11 +46,15 @@ export default function RAGChatBot() {
                     case "text":
                       return (
                         <Fragment key={`${message.id}-${i}`}>
-                          <Message from={message.role}>
-                            <MessageContent>
-                              <Response>{part.text}</Response>
-                            </MessageContent>
-                          </Message>
+                         <Message from={message.role}>
+  <MessageContent>
+    {message.role === "assistant" ? (
+      <Response>{part.text}</Response>
+    ) : (
+      part.text
+    )}
+  </MessageContent>
+</Message>
                         </Fragment>
                       );
                     default:
